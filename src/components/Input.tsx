@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./styles/Input.module.css"
+
+import styles from "./styles/Input.module.css";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     helperText?: string;
@@ -12,8 +13,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = (): JSX.Element => {
     return (
         <label className={styles.inputContainer}>
-            test
-            <input/>
+            <span className={styles.inputLabel}>test</span>
+            <input className={styles.inputElement} />
         </label>
     );
 };

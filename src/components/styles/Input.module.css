@@ -1,3 +1,16 @@
 .inputContainer {
     background: red;
 }
+
+.inputContainer:focus-within  {
+    background: purple;
+}
+
+.inputLabel {
+    position: absolute;
+}
+
+.inputElement {
+    background: none;
+    border: none;
+}
