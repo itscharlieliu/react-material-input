@@ -18,13 +18,13 @@ module.exports =  {
   rules:  {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    "max-len": ["error", { "code": 120 }],
-    "quotes": ["error", "double"],
+    "max-len": ["warn", { "code": 120 }],
+    "quotes": ["warn", "double"],
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/typedef": ["error", { "arrowParameter": true, }],
-    "import/order": ["error", {
+    "import/order": ["warn", {
       "alphabetize": {
         "order": "asc"
       },
