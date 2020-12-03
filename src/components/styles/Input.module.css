@@ -12,5 +12,7 @@
 
 .inputElement {
     background: none;
-    border: none;
+    border-style: none none solid none;
+    border-width: 2px;
+    border-color: black;
 }
