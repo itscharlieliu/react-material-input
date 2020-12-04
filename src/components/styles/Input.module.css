@@ -1,11 +1,17 @@
 .inputContainer {
+    position: relative;
     margin: 8px;
     width: 25ch;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: grey;
+    transition: border-color .2s;
 }
 
-/*.inputContainer:focus-within  {*/
-/*    background: purple;*/
-/*}*/
+.inputContainer:hover  {
+    border-width: 2px;
+    border-color: black;
+}
 
 .inputLabel {
     position: absolute;
@@ -16,13 +22,21 @@
     width: 100%;
     padding: 8px 0;
     background: none;
-    border-style: none none solid none;
-    border-width: 1px;
-    border-color: grey;
-    transition: border-color .2s;
+    border: none;
 }
 
-.inputElement:hover {
-    border-width: 2px;
-    border-color: black;
+.inputContainer::after {
+    background: cadetblue;
+    position: absolute;
+    content: '';
+    height: 2px;
+    right: 50%;
+    left: 50%;
+    top:100%;
+    transition: left .2s, right .2s;
+}
+
+.inputContainer:focus-within::after {
+    right: 0;
+    left: 0;
 }
