@@ -1,18 +1,28 @@
 .inputContainer {
-    background: red;
+    margin: 8px;
+    width: 25ch;
 }
 
-.inputContainer:focus-within  {
-    background: purple;
-}
+/*.inputContainer:focus-within  {*/
+/*    background: purple;*/
+/*}*/
 
 .inputLabel {
     position: absolute;
+    cursor: initial;
 }
 
 .inputElement {
+    width: 100%;
+    padding: 8px 0;
     background: none;
     border-style: none none solid none;
+    border-width: 1px;
+    border-color: grey;
+    transition: border-color .2s;
+}
+
+.inputElement:hover {
     border-width: 2px;
     border-color: black;
 }
