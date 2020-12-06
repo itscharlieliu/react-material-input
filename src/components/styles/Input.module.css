@@ -6,23 +6,12 @@
     border-width: 1px;
     border-color: grey;
     transition: border-color .2s;
+    padding: 8px 0;
 }
 
 .inputContainer:hover  {
     border-width: 2px;
     border-color: black;
-}
-
-.inputLabel {
-    position: absolute;
-    cursor: initial;
-}
-
-.inputElement {
-    width: 100%;
-    padding: 8px 0;
-    background: none;
-    border: none;
 }
 
 .inputContainer::after {
@@ -39,4 +28,31 @@
 .inputContainer:focus-within::after {
     right: 0;
     left: 0;
+}
+
+
+.inputContainer:focus-within .inputLabel {
+    transform: translate(0, 0) scale(.75);
+}
+
+.inputLabel {
+    position: absolute;
+    cursor: initial;
+    bottom: 100%;
+    transform-origin: top left;
+    transform: translate(0, 2em);
+
+    transition: transform .2s;
+}
+
+.minimizedInputLabel {
+    composes: inputLabel;
+    transform: translate(0, 0) scale(.75);
+}
+
+.inputElement {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1em;
 }

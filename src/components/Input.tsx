@@ -13,7 +13,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = (): JSX.Element => {
     return (
         <label className={styles.inputContainer}>
-            <span className={styles.inputLabel}>test</span>
+            <span className={styles.minimizedInputLabel}>test</span>
             <input className={styles.inputElement} />
         </label>
     );
