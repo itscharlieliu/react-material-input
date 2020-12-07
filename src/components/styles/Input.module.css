@@ -1,17 +1,17 @@
 .inputContainer {
     position: relative;
-    margin: 8px;
+    margin: 8px 0;
     width: 25ch;
     border-style: none none solid none;
     border-width: 1px;
     border-color: grey;
     transition: border-color .2s;
     padding: 8px 0;
+    cursor: text;
 }
 
 .inputContainer:hover  {
-    border-width: 2px;
-    border-color: black;
+    box-shadow: 0 0 0 2px black;
 }
 
 .inputContainer::after {
@@ -37,7 +37,6 @@
 
 .inputLabel {
     position: absolute;
-    cursor: initial;
     bottom: 100%;
     transform-origin: top left;
     transform: translate(0, 2em);

@@ -4,11 +4,12 @@ import "./App.css";
 import Input from "./components/Input";
 
 function App(): JSX.Element {
-  return (
-    <div className="App">
-      <Input/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Input />
+            <Input />
+        </div>
+    );
 }
 
 export default App;
