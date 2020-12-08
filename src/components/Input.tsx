@@ -11,10 +11,12 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>): JSX.Element {
     const [value, setValue] = useState("");
 
+    const { helperText, label, error, style, className, ...otherProps } = props;
+
     const inputRef = useRef<HTMLInputElement>(null);
     const hasValue = !!(inputRef.current && inputRef.current.value) || value;
     return (
-        <label className={styles.inputContainer}>
+        <label className={`${styles.inputContainer} ${className}`}>
             <span className={hasValue ? styles.minimizedInputLabel : styles.inputLabel}>test</span>
             <input
                 ref={(node: HTMLInputElement) => {
@@ -29,6 +31,7 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
                 }}
                 className={styles.inputElement}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+                {...otherProps}
             />
         </label>
     );

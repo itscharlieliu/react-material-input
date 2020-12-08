@@ -2,16 +2,30 @@
     position: relative;
     margin: 8px 0;
     width: 25ch;
-    border-style: none none solid none;
-    border-width: 1px;
-    border-color: grey;
-    transition: border-color .2s;
     padding: 8px 0;
     cursor: text;
 }
 
-.inputContainer:hover  {
-    box-shadow: 0 0 0 2px black;
+.inputContainer::before {
+    background: grey;
+    position: absolute;
+    content: '';
+    height: 1px;
+    right: 0;
+    left: 0;
+    bottom:0;
+
+    transition: height .2s, background-color .2s;
+}
+
+.inputContainer:hover::before {
+    background: black;
+    position: absolute;
+    content: '';
+    height: 2px;
+    right: 0;
+    left: 0;
+    bottom:0;
 }
 
 .inputContainer::after {
@@ -21,7 +35,7 @@
     height: 2px;
     right: 50%;
     left: 50%;
-    top:100%;
+    bottom:0;
     transition: left .2s, right .2s;
 }
 
