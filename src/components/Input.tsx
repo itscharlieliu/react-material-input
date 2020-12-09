@@ -16,23 +16,26 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
     const inputRef = useRef<HTMLInputElement>(null);
     const hasValue = !!(inputRef.current && inputRef.current.value) || value;
     return (
-        <label className={`${styles.inputContainer} ${className}`}>
+        <label className={`${styles.root} ${className}`}>
             <span className={hasValue ? styles.minimizedInputLabel : styles.inputLabel}>test</span>
-            <input
-                ref={(node: HTMLInputElement) => {
-                    // Refs are not necessarily objects with a current property. They can also be functions.
-                    // We need to write your code so that it can work with both variations.
-                    (inputRef as MutableRefObject<HTMLDivElement | null>).current = node;
-                    if (typeof ref === "function") {
-                        ref(node);
-                    } else if (ref) {
-                        (ref as MutableRefObject<HTMLDivElement | null>).current = node;
-                    }
-                }}
-                className={styles.inputElement}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
-                {...otherProps}
-            />
+            <div className={styles.inputContainer}>
+                <input
+                    ref={(node: HTMLInputElement) => {
+                        // Refs are not necessarily objects with a current property. They can also be functions.
+                        // We need to write your code so that it can work with both variations.
+                        (inputRef as MutableRefObject<HTMLDivElement | null>).current = node;
+                        if (typeof ref === "function") {
+                            ref(node);
+                        } else if (ref) {
+                            (ref as MutableRefObject<HTMLDivElement | null>).current = node;
+                        }
+                    }}
+                    className={styles.inputElement}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+                    {...otherProps}
+                />
+            </div>
+            <span className={styles.helperTextLabel}>{helperText}</span>
         </label>
     );
 });

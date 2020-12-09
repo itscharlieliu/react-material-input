@@ -1,9 +1,14 @@
-.inputContainer {
+.root {
     position: relative;
     margin: 8px 0;
     width: 25ch;
     padding: 8px 0;
     cursor: text;
+}
+
+.inputContainer{
+    margin: 8px 0;
+    position: relative;
 }
 
 .inputContainer::before {
@@ -18,7 +23,7 @@
     transition: height .2s, background-color .2s;
 }
 
-.inputContainer:hover::before {
+.root:hover .inputContainer::before {
     background: black;
     position: absolute;
     content: '';
@@ -39,21 +44,20 @@
     transition: left .2s, right .2s;
 }
 
-.inputContainer:focus-within::after {
+.root:focus-within .inputContainer::after {
     right: 0;
     left: 0;
 }
 
-
-.inputContainer:focus-within .inputLabel {
+.root:focus-within .inputLabel {
     transform: translate(0, 0) scale(.75);
 }
 
 .inputLabel {
     position: absolute;
-    bottom: 100%;
+    top: 0;
     transform-origin: top left;
-    transform: translate(0, 2em);
+    transform: translate(0, calc(1em + 4px));
 
     transition: transform .2s;
 }
@@ -63,9 +67,18 @@
     transform: translate(0, 0) scale(.75);
 }
 
+.helperTextLabel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom left;
+    transform: scale(.75);
+}
+
 .inputElement {
     width: 100%;
     background: none;
     border: none;
     font-size: 1em;
+    margin: 4px 0;
 }

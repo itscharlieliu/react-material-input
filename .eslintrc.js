@@ -30,6 +30,7 @@ module.exports =  {
       },
       "newlines-between": "always"
     }],
+    "no-unused-vars": "warn"
   },
   env: {
     browser: true,
