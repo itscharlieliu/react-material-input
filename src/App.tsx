@@ -6,7 +6,7 @@ import Input from "./components/Input";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <Input helperText={"test"} />
+            <Input helperText={"test"} error />
             <Input />
         </div>
     );

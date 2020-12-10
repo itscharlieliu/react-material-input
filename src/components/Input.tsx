@@ -18,7 +18,7 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
     return (
         <label className={`${styles.root} ${className}`}>
             <span className={hasValue ? styles.minimizedInputLabel : styles.inputLabel}>test</span>
-            <div className={styles.inputContainer}>
+            <div className={`${styles.inputContainer} ${error ? styles.inputContainerError : ""}`}>
                 <input
                     ref={(node: HTMLInputElement) => {
                         // Refs are not necessarily objects with a current property. They can also be functions.

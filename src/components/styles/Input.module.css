@@ -2,6 +2,9 @@
     --primary: #1976d2;
     --primary-light: #4791db;
 
+    --error: #f44336;
+    --error-light: #e57373;
+
     --text: rgba(0, 0, 0, 0.87);
     --text-secondary: rgba(0, 0, 0, 0.54);
     --text-disabled: rgba(0, 0, 0, 0.38);
@@ -13,9 +16,13 @@
     cursor: text;
 }
 
-.inputContainer{
+.inputContainer {
     margin: 8px 0;
     position: relative;
+}
+
+.inputContainer-error::before {
+    background: var(--error)
 }
 
 .inputContainer::before {
@@ -84,6 +91,7 @@
     left: 0;
     transform-origin: bottom left;
     transform: scale(.75);
+    color: var(--text-secondary)
 }
 
 .inputElement {
