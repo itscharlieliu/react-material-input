@@ -1,4 +1,11 @@
 .root {
+    --primary: #1976d2;
+    --primary-light: #4791db;
+
+    --text: rgba(0, 0, 0, 0.87);
+    --text-secondary: rgba(0, 0, 0, 0.54);
+    --text-disabled: rgba(0, 0, 0, 0.38);
+
     position: relative;
     margin: 8px 0;
     width: 25ch;
@@ -12,7 +19,7 @@
 }
 
 .inputContainer::before {
-    background: grey;
+    background: var(--text-secondary);
     position: absolute;
     content: '';
     height: 1px;
@@ -24,7 +31,7 @@
 }
 
 .root:hover .inputContainer::before {
-    background: black;
+    background: var(--text);
     position: absolute;
     content: '';
     height: 2px;
@@ -34,7 +41,7 @@
 }
 
 .inputContainer::after {
-    background: cadetblue;
+    background: var(--primary);
     position: absolute;
     content: '';
     height: 2px;
@@ -49,21 +56,25 @@
     left: 0;
 }
 
-.root:focus-within .inputLabel {
-    transform: translate(0, 0) scale(.75);
-}
-
 .inputLabel {
+    color: var(--text-secondary);
+
     position: absolute;
     top: 0;
     transform-origin: top left;
     transform: translate(0, calc(1em + 4px));
 
-    transition: transform .2s;
+    transition: transform .2s, color .2s;
 }
 
 .minimizedInputLabel {
     composes: inputLabel;
+    color: var(--primary);
+    transform: translate(0, 0) scale(.75);
+}
+
+.root:focus-within .inputLabel {
+    color: var(--primary);
     transform: translate(0, 0) scale(.75);
 }
 
