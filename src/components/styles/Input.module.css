@@ -1,4 +1,4 @@
-.root {
+.input {
     --primary: #1976d2;
     --primary-light: #4791db;
 
@@ -16,16 +16,16 @@
     cursor: text;
 }
 
-.inputContainer {
+.input__container {
     margin: 8px 0;
     position: relative;
 }
 
-.inputContainer-error::before {
+.input__container--error::before {
     background: var(--error)
 }
 
-.inputContainer::before {
+.input__container::before {
     background: var(--text-secondary);
     position: absolute;
     content: '';
@@ -37,7 +37,7 @@
     transition: height .2s, background-color .2s;
 }
 
-.root:hover .inputContainer::before {
+.input:hover .input__container::before {
     background: var(--text);
     position: absolute;
     content: '';
@@ -47,7 +47,7 @@
     bottom:0;
 }
 
-.inputContainer::after {
+.input__container::after {
     background: var(--primary);
     position: absolute;
     content: '';
@@ -58,12 +58,12 @@
     transition: left .2s, right .2s;
 }
 
-.root:focus-within .inputContainer::after {
+.input:focus-within .input__container::after {
     right: 0;
     left: 0;
 }
 
-.inputLabel {
+.input__label {
     color: var(--text-secondary);
 
     position: absolute;
@@ -74,18 +74,17 @@
     transition: transform .2s, color .2s;
 }
 
-.minimizedInputLabel {
-    composes: inputLabel;
+.input__label--minimized {
     color: var(--primary);
     transform: translate(0, 0) scale(.75);
 }
 
-.root:focus-within .inputLabel {
+.input:focus-within .input__label {
     color: var(--primary);
     transform: translate(0, 0) scale(.75);
 }
 
-.helperTextLabel {
+.input__helperText {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -94,7 +93,7 @@
     color: var(--text-secondary)
 }
 
-.inputElement {
+.input__element {
     width: 100%;
     background: none;
     border: none;

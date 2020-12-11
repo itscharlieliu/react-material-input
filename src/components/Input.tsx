@@ -16,9 +16,11 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
     const inputRef = useRef<HTMLInputElement>(null);
     const hasValue = !!(inputRef.current && inputRef.current.value) || value;
     return (
-        <label className={`${styles.root} ${className}`}>
-            <span className={hasValue ? styles.minimizedInputLabel : styles.inputLabel}>test</span>
-            <div className={`${styles.inputContainer} ${error ? styles.inputContainerError : ""}`}>
+        <label className={`${styles.input} ${className}`}>
+            <span className={`${styles.input__label} ${hasValue ? styles["input__label--minimized"] : ""}`}>
+                {label}
+            </span>
+            <div className={`${styles.input__container} ${error ? styles["input__container--error"] : ""}`}>
                 <input
                     ref={(node: HTMLInputElement) => {
                         // Refs are not necessarily objects with a current property. They can also be functions.
@@ -30,12 +32,12 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
                             (ref as MutableRefObject<HTMLDivElement | null>).current = node;
                         }
                     }}
-                    className={styles.inputElement}
+                    className={styles.input__element}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
                     {...otherProps}
                 />
             </div>
-            <span className={styles.helperTextLabel}>{helperText}</span>
+            <span className={styles.input__helperText}>{helperText}</span>
         </label>
     );
 });
