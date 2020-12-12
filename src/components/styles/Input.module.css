@@ -21,8 +21,17 @@
     position: relative;
 }
 
-.input__container--error::before {
+.input--error.input--error.input--error > .input__container::before {
     background: var(--error)
+}
+
+.input--error.input--error .input__container::after {
+    background: var(--error)
+}
+
+.input--error.input--error.input--error .input__label,
+.input--error.input--error.input--error .input__helperText {
+    color: var(--error)
 }
 
 .input__container::before {
@@ -69,7 +78,7 @@
     position: absolute;
     top: 0;
     transform-origin: top left;
-    transform: translate(0, calc(1em + 4px));
+    transform: translate(0, calc(1em + 8px));
 
     transition: transform .2s, color .2s;
 }

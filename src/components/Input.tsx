@@ -11,16 +11,16 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>): JSX.Element {
     const [value, setValue] = useState("");
 
-    const { helperText, label, error, style, className, ...otherProps } = props;
+    const { helperText, label, error, className, ...otherProps } = props;
 
     const inputRef = useRef<HTMLInputElement>(null);
     const hasValue = !!(inputRef.current && inputRef.current.value) || value;
     return (
-        <label className={`${styles.input} ${className}`}>
+        <label className={`${styles.input} ${error ? styles["input--error"] : ""} ${className ? className : ""}`}>
             <span className={`${styles.input__label} ${hasValue ? styles["input__label--minimized"] : ""}`}>
                 {label}
             </span>
-            <div className={`${styles.input__container} ${error ? styles["input__container--error"] : ""}`}>
+            <div className={`${styles.input__container}`}>
                 <input
                     ref={(node: HTMLInputElement) => {
                         // Refs are not necessarily objects with a current property. They can also be functions.
