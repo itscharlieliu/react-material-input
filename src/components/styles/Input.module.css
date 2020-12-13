@@ -84,7 +84,6 @@
 }
 
 .input__label--minimized {
-    color: var(--primary);
     transform: translate(0, 0) scale(.75);
 }
 
