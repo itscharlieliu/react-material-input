@@ -1,6 +1,7 @@
 {
   "name": "react-material-textfield",
-  "version": "1.0.0",
+  "version": "1.0.2",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -29,7 +30,8 @@
     "lint": "eslint -c .eslintrc.js 'src/**/*'",
     "lint-fix": "eslint --fix -c .eslintrc.js 'src/**/*'",
     "pretty": "prettier --check \"src/**/*.{ts,tsx}\"",
-    "pretty-fix": "prettier --write \"src/**/*.{ts,tsx}\""
+    "pretty-fix": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "prepublish": "tsc"
   },
   "eslintConfig": {
     "extends": [
@@ -37,16 +39,6 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
 }
