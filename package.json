@@ -1,6 +1,6 @@
 {
   "name": "react-material-textfield",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -42,8 +42,7 @@
       "react-app/jest"
     ]
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "browserslist": {
     "production": [
       ">0.2%",
