@@ -23,7 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React, { useRef, useState } from "react";
 import styles from "./styles/Input.module.css";
-var Input = React.forwardRef(function Input(props, ref) {
+export var Input = React.forwardRef(function Input(props, ref) {
     var _a = useState(""), value = _a[0], setValue = _a[1];
     var helperText = props.helperText, label = props.label, error = props.error, className = props.className, otherProps = __rest(props, ["helperText", "label", "error", "className"]);
     var inputRef = useRef(null);
@@ -42,4 +42,3 @@ var Input = React.forwardRef(function Input(props, ref) {
                     }, className: styles.input__element, onChange: function (event) { return setValue(event.target.value); } }, otherProps), void 0) }), void 0),
             _jsx("span", __assign({ className: styles.input__helperText }, { children: helperText }), void 0)] }), void 0));
 });
-module.exports = Input;
