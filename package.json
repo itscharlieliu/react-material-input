@@ -1,6 +1,6 @@
 {
   "name": "react-material-textfield",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -31,13 +31,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "babel ./src --out-dir ./dist --extensions \".ts,.tsx\" --copy-files",
+    "build": "tsc --emitDeclarationOnly && babel ./src --out-dir ./dist --extensions \".ts,.tsx\" --copy-files",
     "test": "react-scripts test",
     "lint": "eslint -c .eslintrc.js 'src/**/*'",
     "lint-fix": "eslint --fix -c .eslintrc.js 'src/**/*'",
     "pretty": "prettier --check \"src/**/*.{ts,tsx}\"",
     "pretty-fix": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "prepublish": "tsc"
+    "prepare": "yarn build"
   },
   "eslintConfig": {
     "extends": [

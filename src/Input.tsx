@@ -8,10 +8,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
     error?: boolean;
 }
 
-export const Input = React.forwardRef(function Input(
-    props: InputProps,
-    ref: ForwardedRef<HTMLInputElement>,
-): JSX.Element {
+const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>): JSX.Element {
     const [value, setValue] = useState("");
 
     const { helperText, label, error, className, ...otherProps } = props;
@@ -44,3 +41,7 @@ export const Input = React.forwardRef(function Input(
         </label>
     );
 });
+
+export default Input;
+
+module.exports = Input;
