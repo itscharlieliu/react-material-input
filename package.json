@@ -45,6 +45,7 @@
       "react-app/jest"
     ]
   },
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
