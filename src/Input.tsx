@@ -43,5 +43,3 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
 });
 
 export default Input;
-
-module.exports = Input;
