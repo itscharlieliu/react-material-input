@@ -15,6 +15,7 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
 
     const inputRef = useRef<HTMLInputElement>(null);
     const hasValue = !!(inputRef.current && inputRef.current.value) || value;
+
     return (
         <label className={`${styles.input} ${error ? styles["input--error"] : ""} ${className ? className : ""}`}>
             <span className={`${styles.input__label} ${hasValue ? styles["input__label--minimized"] : ""}`}>
