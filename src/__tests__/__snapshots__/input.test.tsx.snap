@@ -12,7 +12,6 @@ exports[`input tests renders when input contains text: withValue 1`] = `
   >
     <input
       className="input__element"
-      onChange={[Function]}
       value="test"
     />
   </div>
@@ -34,7 +33,6 @@ exports[`input tests renders without crashing: base 1`] = `
   >
     <input
       className="input__element"
-      onChange={[Function]}
     />
   </div>
   <span
