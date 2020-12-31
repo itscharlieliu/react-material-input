@@ -24,11 +24,13 @@ describe("input tests", () => {
             render(<Input />, container);
         });
 
-        const tree = renderer.create(<Input />).toJSON();
-        expect(tree).toMatchSnapshot();
+        const component = renderer.create(<Input />).toJSON();
+        expect(component).toMatchSnapshot("base");
     });
 
-    it("changes color when mouse enters", () => {
-        const component = renderer.create(<Input />);
+    it("renders when input contains text", () => {
+        // TODO snapshot is not showing showing input label minimized
+        const component = renderer.create(<Input value={"test"} />);
+        expect(component).toMatchSnapshot("withValue");
     });
 });
