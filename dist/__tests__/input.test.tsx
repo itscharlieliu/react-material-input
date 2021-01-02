@@ -1,5 +1,6 @@
 import { render, unmountComponentAtNode } from "react-dom";
-import { act, Simulate } from "react-dom/test-utils";
+import { act } from "react-dom/test-utils";
+import renderer from "react-test-renderer";
 import Input from "../Input";
 import React from "react";
 
@@ -22,5 +23,15 @@ describe("input tests", () => {
         act(() => {
             render(<Input />, container);
         });
+
+        const component = renderer.create(<Input />);
+        expect(component).toMatchSnapshot("base");
+    });
+
+    it("renders when input contains text", () => {
+        // TODO snapshot is not showing showing input label minimized
+        const component = renderer.create(<Input value={"test"} />);
+        component.update(<Input value={"test"} />);
+        expect(component).toMatchSnapshot("withValue");
     });
 });

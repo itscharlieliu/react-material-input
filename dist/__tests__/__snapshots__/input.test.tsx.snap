@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input tests renders when input contains text: withValue 1`] = `
+<label
+  className="input  "
+>
+  <span
+    className="input__label "
+  />
+  <div
+    className="input__container"
+  >
+    <input
+      className="input__element"
+      value="test"
+    />
+  </div>
+  <span
+    className="input__helperText"
+  />
+</label>
+`;
+
+exports[`input tests renders without crashing: base 1`] = `
+<label
+  className="input  "
+>
+  <span
+    className="input__label "
+  />
+  <div
+    className="input__container"
+  >
+    <input
+      className="input__element"
+    />
+  </div>
+  <span
+    className="input__helperText"
+  />
+</label>
+`;
