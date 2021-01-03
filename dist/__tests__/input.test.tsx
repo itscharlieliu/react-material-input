@@ -1,8 +1,9 @@
+import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import renderer from "react-test-renderer";
+
 import Input from "../Input";
-import React from "react";
 
 describe("input tests", () => {
     let container: null | HTMLDivElement = null;

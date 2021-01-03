@@ -1,4 +1,4 @@
-import React, { ForwardedRef, MutableRefObject, useRef, useState } from "react";
+import React, { ForwardedRef, MutableRefObject, useRef } from "react";
 
 import styles from "./styles/Input.module.css";
 
