@@ -6,12 +6,10 @@ interface InputElementProps extends React.InputHTMLAttributes<HTMLElement> {
     textArea?: boolean;
 }
 
-const InputElement = React.forwardRef(function InputElement(
-    props: InputElementProps,
-    ref: ForwardedRef<HTMLInputElement>,
-) {
+const InputElement = React.forwardRef(function InputElement(props: InputElementProps, ref: ForwardedRef<HTMLElement>) {
     const { textArea, ...otherProps } = props;
 
+    // @ts-ignore
     return textArea ? <textarea ref={ref} {...otherProps} /> : <input ref={ref} {...otherProps} />;
 });
 
@@ -29,7 +27,21 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
 
     const hasValue = !!(inputRef.current && inputRef.current.value);
 
-    console.log(hasValue);
+    const inputProps = {
+        ref: (node: HTMLInputElement) => {
+            // Refs are not necessarily objects with a current property. They can also be functions.
+            // We need to write your code so that it can work with both variations.
+            (inputRef as MutableRefObject<HTMLDivElement | null>).current = node;
+            if (typeof ref === "function") {
+                ref(node);
+            } else if (ref) {
+                (ref as MutableRefObject<HTMLDivElement | null>).current = node;
+            }
+        },
+
+        className: styles.input__element,
+        ...otherProps,
+    };
 
     return (
         <label className={`${styles.input} ${error ? styles["input--error"] : ""} ${className ? className : ""}`}>
@@ -37,20 +49,8 @@ const Input = React.forwardRef(function Input(props: InputProps, ref: ForwardedR
                 {label}
             </span>
             <div className={`${styles.input__container}`}>
-                <InputElement
-                    ref={(node: HTMLInputElement) => {
-                        // Refs are not necessarily objects with a current property. They can also be functions.
-                        // We need to write your code so that it can work with both variations.
-                        (inputRef as MutableRefObject<HTMLDivElement | null>).current = node;
-                        if (typeof ref === "function") {
-                            ref(node);
-                        } else if (ref) {
-                            (ref as MutableRefObject<HTMLDivElement | null>).current = node;
-                        }
-                    }}
-                    className={styles.input__element}
-                    {...otherProps}
-                />
+                {/* @ts-ignore}*/}
+                {textArea ? <textarea {...inputProps} /> : <input {...inputProps} />}
             </div>
             <span className={styles.input__helperText}>{helperText}</span>
         </label>
